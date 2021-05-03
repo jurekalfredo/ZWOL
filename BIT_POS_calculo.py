@@ -95,48 +95,7 @@ def Pose(AT60,tool,frame):
        return S
 
 
-def BIT_POS(deg,tool,frame):  
-  A1=float(deg[0])*pi/180
-  A2=-float(deg[1])*pi/180
-  A3=-float(deg[2])*pi/180
-  A4=float(deg[3])*pi/180
-  A5=-float(deg[4])*pi/180
-  if A5==0:
-     A5=0.0000001
-  A6=float(deg[5])*pi/180      
-  MATRIX = CD_robot([float(A1),float(A2),float(A3),float(A4),float(A5),float(A6)])
-  POS = POSE_(MATRIX)
-  if(deg[0]>=0):
-    d = 0
-  else:
-    d = 1
-  if(deg[1]>=0):
-    e = 0
-  else:
-    e = 1
-  if(deg[2]>=0):
-    f = 0
-  else:
-    f = 1  
-  if(deg[3]>=0):
-    g = 0
-  else:
-    g = 1
-  if(deg[4]>=0):
-    h = 0
-  else:
-    h = 1
-  if(deg[5]>=0):
-    i = 0
-  else:
-    i = 1
-  bit =  ('0b'+ str(d)+str(e)+str(f)+str(g)+str(h)+str(i))
-  #print('bit_pos'+str(bit))
-  bit_pos = bitpos_(str(d)+str(e)+str(f)+str(g)+str(h)+str(i))
-  POS_F = Pose(MATRIX,tool,frame)
-  
-  
-  return MATRIX,POS_F,bit_pos,bit
+
 
 MATRIX = (326.812 , -6.416, 399.531, 75.407, 7.102, 100.670)
 POS = MATRIX_(MATRIX)

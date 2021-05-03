@@ -2,7 +2,6 @@
 
 from numpy import pi
 from CD_robot import *
-from bitpos_ import*
 def MATRIX_(pose):
     """Calcula la matriz de (4x4) desde la posición (mm) y los ángulos de Euler (grados),
         dada POSE [x, y, z, r, p, w].

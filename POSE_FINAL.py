@@ -96,11 +96,11 @@ def Pose(AT60,tool,frame):
 
 
 
-MATRIX = (326.812 , -6.416, 399.531, 75.407, 7.102, 100.670)
+MATRIX = (326.812 , -6.416, 399.531, 75.407, 7.102, 100.670) # aca escribo la pose de la brida (Tras: XYZ Rot:Z,Y',X")
 POS = MATRIX_(MATRIX)
 
-tool = 100, 70, 0.00, -50.00, 0.00, 0.00
-frame = 0.00 , 0.00, 0.00, 0.00, 0.00, 0.00
+tool = 100, 70, 0.00, -50.00, 0.00, 0.00# aca cargo los parametros de la herramiena (Tras: XYZ Rot:Z,Y',X")
+frame = 0.00 , 0.00, 0.00, 0.00, 0.00, 0.00# aca agrego la trama del frame (Tras: XYZ Rot:Z,Y',X")
 
 POS_F = Pose(POS,tool,frame)    
     

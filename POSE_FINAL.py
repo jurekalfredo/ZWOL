@@ -92,7 +92,9 @@ def Pose(AT60,tool,frame):
        AT_2 =np.dot(inverse_1,AT_1)
        
        S = POSE_(AT_2)
-       print ("X: "+str("{0:.3f}".format(S[0]))+" Y: "+str("{0:.3f}".format(S[1]))+" Z: "+str("{0:.3f}".format(S[2]))+" Rz: "+str("{0:.3f}".format(S[3]))+" Ry': "+str("{0:.3f}".format(S[4]))+' Rx": '+str("{0:.3f}".format(S[5])))
+       print ("X: "+str(
+           "{0:.3f}".format(S[0]))+" Y: "+str("{0:.3f}".format(S[1]))+" Z: "+str("{0:.3f}".format(S[2]))+" Rz: "+str(
+           "{0:.3f}".format(S[3]))+" Ry': "+str("{0:.3f}".format(S[4]))+' Rx": '+str("{0:.3f}".format(S[5])))
        return S
 
 

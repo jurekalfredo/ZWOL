@@ -1,7 +1,9 @@
 
 
+
 from numpy import pi
 from CD_robot import *
+
 def MATRIX_(pose):
     """Calcula la matriz de (4x4) desde la posición (mm) y los ángulos de Euler (grados),
         dada POSE [x, y, z, r, p, w].
@@ -90,18 +92,36 @@ def Pose(AT60,tool,frame):
        AT_2 =np.dot(inverse_1,AT_1)
        
        S = POSE_(AT_2)
-       print ("X: "+str(S[0])+" Y: "+str(S[1])+" Z: "+str(S[2])+" Rz: "+str(S[3])+" Ry': "+str(S[4])+' Rx": '+str(S[5]))
+       print ("X: "+str("{0:.3f}".format(S[0]))+" Y: "+str("{0:.3f}".format(S[1]))+" Z: "+str("{0:.3f}".format(S[2]))+" Rz: "+str("{0:.3f}".format(S[3]))+" Ry': "+str("{0:.3f}".format(S[4]))+' Rx": '+str("{0:.3f}".format(S[5])))
        return S
 
 
-
-
-MATRIX = (326.812 , -6.416, 399.531, 75.407, 7.102, 100.670) # aca escribo la pose de la brida (Tras: XYZ Rot:Z,Y',X")
+#MATRIX = (366.500, 94.580, 455.430, 90.00, 55.740, 109.049)
+MATRIX = (366.500 ,0.000 ,676.770,0.000 , 90.000 , 0.000)
 POS = MATRIX_(MATRIX)
+tool = 100, 70, 0.00, -50.00, 0.00, 0.00
+#tool = 0.00 , 0.00, 0.00, 0.00, 0.00, 0.00
+frame = 0.00 , 0.00, 0.00, 0.00, 0.00, 0.00
 
-tool = 100, 70, 0.00, -50.00, 0.00, 0.00# aca cargo los parametros de la herramiena (Tras: XYZ Rot:Z,Y',X")
-frame = 0.00 , 0.00, 0.00, 0.00, 0.00, 0.00# aca agrego la trama del frame (Tras: XYZ Rot:Z,Y',X")
+POS_F = Pose(POS,tool,frame)
 
-POS_F = Pose(POS,tool,frame)    
-    
+
+
+deg = 0.00, 0.00, 0.00, 0.00, 0.00, 0.00  
+#deg =   20.64, 10.13, 29.26, 58.50, -43.39, -9.32
+
+A1=float(deg[0])*pi/180
+A2=-float(deg[1])*pi/180
+A3=-float(deg[2])*pi/180
+A4=float(deg[3])*pi/180
+A5=-float(deg[4])*pi/180
+if A5==0:
+ A5=0.0000001
+A6=float(deg[5])*pi/180      
+MATRIX = CD_robot([float(A1),float(A2),float(A3),float(A4),float(A5),float(A6)])
+POS = POSE_(MATRIX)
+
+POS_F = Pose(MATRIX,tool,frame)
+  
+
     
